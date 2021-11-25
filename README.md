@@ -1,2 +1,2 @@
-# backend_auth
-This is an example of an authentication micro-service using Django and DRF
+# backend_vehicles
+This is an example of an api vehicles module micro-service using Django and DRF
