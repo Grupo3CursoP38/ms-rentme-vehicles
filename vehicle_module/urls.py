@@ -29,9 +29,9 @@ from drf_yasg import openapi
 #Swagger Configuration.
 schema_view = get_schema_view(
     openapi.Info(
-        title="Rentme-auth API",
+        title="ms-rentme-vehicles",
         default_version='v1',
-        description="Documentación de Endpoints para el backend de Autenticación. (Django)",
+        description="Documentación de Endpoints para el backend de Vehiculos. (Django)",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="sntiagomeneses@gmail.com"),
         license=openapi.License(name="BSD License"),
