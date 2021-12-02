@@ -10,7 +10,8 @@ class VehicleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Vehicle
-        fields = '__all__'
+        fields = ['id', 'name', 'short_description', 'long_description',
+                  'color', 'img_url', 'type', 'in_use']
 
     type = serializers.CharField()
 
@@ -30,7 +31,7 @@ class VehicleSerializer(serializers.ModelSerializer):
         except exceptions.ObjectDoesNotExist as e:
 
             errors['type_vehicle'] = e
-    
+
             raise serializers.ValidationError(errors)
 
     def update(self, instance, validated_data):
@@ -39,14 +40,16 @@ class VehicleSerializer(serializers.ModelSerializer):
 
         try:
 
-            type = validated_data.pop("type")
-            print(type)
-            type_instance = Vehicle_type.objects.get(name=type)
-            validated_data["type"] = type_instance
+            type = validated_data.pop("type", False)
+            if(type):
+                print(type)
+                type_instance = Vehicle_type.objects.get(name=type)
+                validated_data["type"] = type_instance
+
             return super().update(instance, validated_data)
 
         except exceptions.ObjectDoesNotExist as e:
 
             errors['type_vehicle'] = e
-    
+
             raise serializers.ValidationError(errors)
