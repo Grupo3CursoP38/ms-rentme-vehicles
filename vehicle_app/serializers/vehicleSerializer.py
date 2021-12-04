@@ -1,8 +1,6 @@
 from ..models.vehicle import Vehicle
 from ..models.vehicle_type import Vehicle_type
-from rest_framework import exceptions, serializers
-
-
+from rest_framework import serializers
 from django.core import exceptions
 
 
