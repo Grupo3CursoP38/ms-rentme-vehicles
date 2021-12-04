@@ -6,6 +6,8 @@ from vehicle_app.models.vehicle import Vehicle
 
 
 class VehicleViewSet(viewsets.ModelViewSet):
+    
+    '''El model view set crea automaticamente los servicios/endpoint para el CRUD''' 
 
     def get_queryset(self):
         if self.request.method == 'DELETE':
